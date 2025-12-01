@@ -1,32 +1,36 @@
-import java.util.Scanner;
-
-public class Main{
+public class Main {
     public static void main(String[] args) {
 
-        BST tree = new BST();
-        int[] data = {50, 30, 70, 20, 40, 60, 80, 35, 45, 65};
-
-        for (int v : data) tree.insert(v);
-        AsciiTreePrinter.print(tree.root);
-
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number to insert into the BST: ");
-        int userNum = sc.nextInt();
-        tree.insert(userNum);
-
-        System.out.println(" BST after inserting " + userNum + ":");
-        AsciiTreePrinter.print(tree.root);
-
-
-        System.out.println("Search 45: " + (tree.search(45) ? "Found" : "Not found"));
-
-
-
-
-        tree.delete(30);
-        System.out.println(" BST after deleting 30:");
-        AsciiTreePrinter.print(tree.root);
+        MyStack stack = new MyStack();
+        System.out.println("--- Stack Exercise ---");
+        stack.printList();
         System.out.println();
+
+
+        System.out.println("--- 1. PUSH  ---");
+        stack.push(10);
+        stack.printList();
+        stack.push(20);
+        stack.printList();
+        stack.push(30);
+        stack.printList();
+        stack.push(40);
+        stack.printList();
+        stack.push(50);
+        stack.printList();
+        System.out.println();
+
+
+        System.out.println("--- 2. POP  ---");
+        int popped = stack.pop();
+        System.out.println("Deleted Node (Pop): " + popped);
+        stack.printList();
+
+
+        System.out.println("--- 3. DELETE MIDDLE  ---");
+        int deleted = stack.deleteMiddle();
+        System.out.println("Deleted Middle Element: " + deleted);
+        stack.printList();
 
 
     }
