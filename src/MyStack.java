@@ -41,8 +41,6 @@ public class MyStack {
     }
 
 
-
-
     int deleteMiddle() {
         if (size == 0) {
             System.out.println("ERROR : Stack EMPTY.");
@@ -50,9 +48,13 @@ public class MyStack {
         }
         int val = middle.data;
 
-        if (middle.prev != null) {middle.prev.next = middle.next;}
+        if (middle.prev != null) {
+            middle.prev.next = middle.next;
+        }
 
-        if (middle.next != null) {middle.next.prev = middle.prev;}
+        if (middle.next != null) {
+            middle.next.prev = middle.prev;
+        }
         size--;
 
 
@@ -64,7 +66,6 @@ public class MyStack {
 
         return val;
     }
-
 
 
     void printList() {
