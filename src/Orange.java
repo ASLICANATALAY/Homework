@@ -11,4 +11,4 @@ public class Orange extends Citrus {
         super.describe();
         System.out.println("Sweetness level: " + sweetnessLevel);
     }
-}
+
