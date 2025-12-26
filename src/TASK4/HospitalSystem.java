@@ -1,3 +1,12 @@
+package TASK4;
+
+import TASK1.Patient;
+import TASK1.PatientList;
+import TASK2.TreatmentQueue;
+import TASK2.TreatmentRequest;
+import TASK3.DischargeRecord;
+import TASK3.DischargeStack;
+
 import java.util.HashMap;
 class HospitalSystem {
     private PatientList patientList;
@@ -20,7 +29,7 @@ class HospitalSystem {
         patientList.addPatient(p);//add to linked list
         patientMap.put(id, p);//add to hash
 
-        System.out.println("Patient has been added to the system: " + p.name);
+        System.out.println("TASK1.Patient has been added to the system: " + p.name);
     }
 
 
@@ -35,7 +44,7 @@ class HospitalSystem {
             }
             System.out.println("Treatment request added for patient:"+patientId);
         } else {
-            System.out.println("Patient not found!!");
+            System.out.println("TASK1.Patient not found!!");
         }
     }
 
@@ -68,7 +77,7 @@ class HospitalSystem {
             patientMap.remove(patientId);//and remove the patient from hashMap
             System.out.println("The patient " + patientId+" was discharged");
         } else {
-            System.out.println("Patient not found!");
+            System.out.println("TASK1.Patient not found!");
         }
     }
 
@@ -76,13 +85,13 @@ class HospitalSystem {
     public void findPatient(int id) {//search by id number
         Patient p = patientMap.get(id);
         if (p != null) System.out.println("The patient " + p+ "was found");
-        else System.out.println("Patient not found!");
+        else System.out.println("TASK1.Patient not found!");
     }
 
 
     void sortPatientsBySeverity() {//prioritizes patients according to the level of urgency
-        System.out.println("\nPatient are ranked according to severity level..");
-        if (patientMap.size() == 0) {
+        System.out.println("\nTASK1.Patient are ranked according to severity level..");
+        if (patientMap.size() == 0) {//If the map is empty, exit without performing any actions.
             System.out.println("No patients to sort.");
             return;
         }
@@ -95,13 +104,12 @@ class HospitalSystem {
             index++;
         }
 
-        // Bubble Sort - sorts in descending order (highest severity first)
+        // sorts from largest to smallest
         int n = patientArray.length;
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                // Compare severity levels
-                if (patientArray[j].severity < patientArray[j + 1].severity) {
-                    // Swap patients
+                // If the current patient's urgency is lower than the next patient's, their places are switched.
+                if (patientArray[j].severity < patientArray[j + 1].severity) {//swap process
                     Patient temp = patientArray[j];
                     patientArray[j] = patientArray[j + 1];
                     patientArray[j + 1] = temp;
@@ -109,7 +117,7 @@ class HospitalSystem {
             }
         }
 
-        // Display sorted patients
+        // prints the list sorted from largest to smallest
         System.out.println("Patients sorted by severity (highest to lowest):");
         System.out.println("------------------------------------------------");
         for (int i = 0; i < patientArray.length; i++) {
