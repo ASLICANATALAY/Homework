@@ -1,0 +1,44 @@
+1->In the hospital system, the first patient to arrive should be treated first. This condition can be ensured by using FIFO (First In First Out) in the queue. In this system, new patients are added to the front, and treated patients are removed from the front of the list.  We can do this with enqueue and dequeue. This system complies with hospital rules. For example, in a hospital, when patients are added to the queue (enqueue), the first patient to arrive is treated first (dequeue). This is a fair and logical system.  
+
+  
+2->If a stack (Last in First out) were used instead of a queue, the last patient to arrive would be treated first. This would not comply with hospital policy and would cause confusion in the hospital. The first patients to arrive would be at the bottom. For example, the first patient would wait indefinitely because new arrivals would take priority.   
+
+Both the patient insertion (enqueue) and removal (dequeue) operations have a time complexity of O(1). Accessing the next patient also has a time complexity of O(1). Search and print operations are O(n) for both stacks and queues. However, the patient sorting part is different for both. One uses LIFO while the other uses FIFO. Since the patient sorting logic follows FIFO, it makes more sense to use a queue.  
+
+
+QUEUE  
+
+Queue O(1): New elements are always added to the end of the queue. 
+
+Dequeue O(1): The element is always removed from the front.  
+
+Print and Size O(n): We iterate through all elements.  
+
+STACK  
+
+Push O(1): The new element is always added to the top.  
+
+Pop O(1): The element is always removed from the top.  
+
+The time complexity for queues and stacks is generally the same. However, the FIFO property of queues is more suitable for hospital rules. Stacks are not preferred because LIFO causes incorrect sorting.
+  QUEUE OUTPUT=
+TASK1.Patient 1added to hospital document
+TASK1.Patient 2added to hospital document
+TASK1.Patient 3added to hospital document
+TASK1.Patient 4added to hospital document
+TASK1.Patient 5added to hospital document
+TASK1.Patient 6added to hospital document
+TASK1.Patient 7added to hospital document
+TASK1.Patient 8added to hospital document
+1->patientID=1 Request Time=1766846626296, Priority: No
+2->patientID=2 Request Time=1766846626301, Priority: No
+3->patientID=3 Request Time=1766846626301, Priority: No
+4->patientID=4 Request Time=1766846626301, Priority: No
+5->patientID=5 Request Time=1766846626301, Priority: No
+6->patientID=6 Request Time=1766846626301, Priority: No
+7->patientID=7 Request Time=1766846626301, Priority: No
+8->patientID=8 Request Time=1766846626301, Priority: No
+There are8patient in the queue.
+patientpatientID=1 Request Time=1766846626296, Priority: Noremoved
+patientpatientID=2 Request Time=1766846626301, Priority: Noremoved
+patientpatientID=3 Request Time=1766846626301, Priority: Noremoved
