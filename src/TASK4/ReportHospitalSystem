@@ -1,0 +1,78 @@
+In my code, priority is divided into two parts. In the processTreatment method, it first removes the patient from the priority queue (dequeue). But if it's empty, it's removed from the normal queue.  
+
+Time complexity analysis:  
+
+ENQUEUE O(1) = In the addTreatmentRequest part, I use get(patientId) to find the patient. Since it's a hashMap, it's O(1). Then I add it to the queue (using enqueue).  
+
+DEQUEUE O(1) = In the processTreatment part, I first use priorityQueue.dequeue(). Removing from the front of this linked list is O(1). If it's empty, I do treatmentQueue.dequeue(), which is O(1). To find a patient, I use patientMap() and dischargeStack.push(). Both are O(1).  
+
+All have O(1) time complexity. Very efficient for a hospital system.  
+
+Summary = Advantage: O(1) operations are independent of n. Priority is fast and scalable. FIFO order is preserved. There are disadvantages too. There is no dynamic comparison between priority levels. Having 2 separate queues is a bit complex, but the performance is excellent.  
+
+BIG O COMPARISON FOR SORTING  
+
+In the SortPatientsSeverity() method, I use bubble sort to sort by severity level. I convert the HashMap to an array. I compare using a nested loop and swap elements.   
+
+ TIME COMPLEXITY   
+
+Converting the array = placing patientMap.values() into the array is O(n).  
+
+Bubble sort = 2 nested loops. There, I compare two elements and swap them. In the worst case, each comparison requires a swap. O(n²). For example, 100 comparisons for 10 patients.   
+
+Summary = O(n²) due to bubble sort. No problem for small hospital systems, but it can be slow in large hospital systems. This is the weak point of sorting. In my code, I use two separate treatmentQueues. If I use a heap-based priority queue, the system will be more efficient. A heap is a tree structure. This allows elements to be automatically sorted by priority. For example, by severity level.  
+
+Heap-priority queue = automatically sorts elements when adding them (using enqueue). The patient with the highest priority goes to the top. When removing, it also removes the patient at the top.   
+
+In your code, TreatmentRequest has a boolean isPriority, but you can extend this with a heap (for example, give the priority value as an int and put it in the heap).   
+
+Current system = I switch between 2 queues in O(1). If there are too many priority patients, they may enter the wrong queue.   
+
+WITH HEAP:  
+ENQUEUE O(logn) = Sorts the element when adding it to the tree.    
+
+DEQUEUE O(logn) = Removes the highest priority and reorganizes the tree.  
+
+Comparison = With the heap, the priority patient is automatically selected for each enqueue/dequeue. For example, dequeuing from the heap for processTreatment returns the most urgent patient based on severity in O(log n). Therefore, the wrong patient may be selected. 
+
+HOSPITAL SYSTEM OUTPUT=
+PatientAhmetadded to hospital document.
+TASK1.Patient has been added to the system: Ahmet
+PatientAslıcanadded to hospital document.
+TASK1.Patient has been added to the system: Aslıcan
+PatientMelisaadded to hospital document.
+TASK1.Patient has been added to the system: Melisa
+PatientZülaladded to hospital document.
+TASK1.Patient has been added to the system: Zülal
+PatientSaadetadded to hospital document.
+TASK1.Patient has been added to the system: Saadet
+PatientFatmaadded to hospital document.
+TASK1.Patient has been added to the system: Fatma
+PatientFatmaadded to hospital document.
+TASK1.Patient has been added to the system: Fatma
+PatientFatmaadded to hospital document.
+TASK1.Patient has been added to the system: Fatma
+PatientFatmaadded to hospital document.
+TASK1.Patient has been added to the system: Fatma
+PatientFatmaadded to hospital document.
+TASK1.Patient has been added to the system: Fatma
+The patient ID=1, Name=AhmetSeverity=7, Age=41was found
+
+TASK1.Patient are ranked according to severity level..
+Patients sorted by severity (highest to lowest):
+------------------------------------------------
+1. ID: 10, Name: Fatma, Severity: 10, Age: 9
+2. ID: 4, Name: Zülal, Severity: 9, Age: 70
+3. ID: 9, Name: Fatma, Severity: 8, Age: 56
+4. ID: 1, Name: Ahmet, Severity: 7, Age: 41
+5. ID: 3, Name: Melisa, Severity: 6, Age: 37
+6. ID: 2, Name: Aslıcan, Severity: 5, Age: 30
+7. ID: 7, Name: Fatma, Severity: 4, Age: 11
+8. ID: 8, Name: Fatma, Severity: 3, Age: 24
+9. ID: 5, Name: Saadet, Severity: 2, Age: 44
+10. ID: 6, Name: Fatma, Severity: 1, Age: 85
+------------------------------------------------
+Sorting feature added.
+  
+
+The heap already keeps things sorted. Instead of a method like sortPatientsBySeverity, you can directly retrieve the patients with the highest severity from the heap. This improves the time complexity from O(n²) to O(n log n).
