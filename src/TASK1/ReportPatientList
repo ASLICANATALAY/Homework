@@ -1,0 +1,68 @@
+1->   The ArrayList size increases when necessary. Searching and removal are performed based on the ID. That is, the search is performed first. There is a significant difference between an array and a linked list. This situation varies depending on which part of the operation it is.   
+
+AddPatient():   
+
+Linked list O(1)=adding to the end is fast thanks to the tail.  
+
+Array List O(1)=constant. However, if the array is full, it can be restructured O(n).  
+
+Comparison==linked list is more useful because it is constant. Linked list is fast because it directly changes the links.  
+
+RemovePatient():  
+
+Linked List O(n)=The list must be traversed for searching. Then removal is O(1).  
+
+Array List O(n) = First search O(n), then shifting elements is required for removal O(n). Because the array is sequential.  
+
+Comparison == shifting cost in array list may be higher than in linked list. In linked list, the number of elements before and after is known O(1). Linked list is more efficient.  
+
+FintPatient():  
+
+Linked list O(n) = You need to traverse the list from start to end.  
+
+Array list O(n) = You need to scan the array from start to end.  
+
+Comparison == Linked list is slow for random access. Array list access by index is O(1).  
+
+Linked lists are more efficient for insertion and deletion operations, but array lists are better for searching and random access. Linked lists use more memory due to pointers between nodes. 
+
+2-> addPatient()-----> Adds the new patient to the end of the list. Thanks to Tail, we find the last node in O(1). Since the Tail reference is retained, it is sufficient to directly connect the new node to Tail's next and update Tail. It is independent of the list size. 
+
+Time complexity is O(1).  
+
+RemovePatient(int id)------> Starts from the head node and searches the list for the id. If the patient is at the end or does not exist, the entire list must be traversed. If there are n patients, n steps are required.  
+
+Time complexity is O(n).  
+
+FindPatient(int id)------->In the worst case, we may need to scan the entire list.   
+
+Time complexity O(n).
+PATIENT LIST OUTPUT=
+Task 1: Patient List Test
+
+1- Adding 5 patients:
+PatientAslıcan Atalayadded to hospital document.
+PatientMelisa Çelikadded to hospital document.
+PatientFatmanur Yurdakuladded to hospital document.
+PatientZülal Ceyhanadded to hospital document.
+PatientSaadet Armutadded to hospital document.
+
+ Patient List  
+1-> ID=101, Name=Aslıcan AtalaySeverity=8, Age=41
+2-> ID=102, Name=Melisa ÇelikSeverity=5, Age=24
+3-> ID=103, Name=Fatmanur YurdakulSeverity=9, Age=63
+4-> ID=104, Name=Zülal CeyhanSeverity=3, Age=15
+5-> ID=105, Name=Saadet ArmutSeverity=6, Age=56
+Total patients size: 5
+2- Removing patient with ID 103:
+103removed from the hospital document.
+3- Searching for patient with ID 102:
+Patient found: ID=102, Name=Melisa ÇelikSeverity=5, Age=24
+4- Final patient list:
+
+ Patient List  
+1-> ID=101, Name=Aslıcan AtalaySeverity=8, Age=41
+2-> ID=102, Name=Melisa ÇelikSeverity=5, Age=24
+3-> ID=104, Name=Zülal CeyhanSeverity=3, Age=15
+4-> ID=105, Name=Saadet ArmutSeverity=6, Age=56
+Total patients size: 4
