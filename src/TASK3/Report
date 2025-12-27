@@ -1,0 +1,38 @@
+1-Stack is suitable for managing discharge records. It works on the LIFO principle. Processing discharge records in reverse order (most recent first) is more practical and faster in hospital management. Unlike linked lists, it does not use extra memory. Records are removed after they are processed.  
+Undo operation: Undo the last discharge operation performed.  
+Log records: View the most recent records first.  
+Temporary storage: Fast access for short-term operations. 
+
+LIFO logic:  
+The most recently added patient record moves to the top of the queue. For example, when a patient is discharged, their record is added to the stack. It is then used for verification. If a patient is discharged by mistake, it is easy to undo the last action. The stack facilitates this (using peek and pop).  
+
+Big O Analysis  
+PUSH O(1) = Adding a new patient record is very fast. The record is placed directly at the top.  
+
+POP O(1) = Deleting the last added record is also very fast.  
+PEEK O(1) = Shows the topmost record. 
+PRINT_STACK O(n) = Iterates through the entire list.  
+
+2-The system would completely change because the queue operates on the FIFO principle. The first record added is the first to be removed. This situation prioritizes old discharge records. The queue becomes incorrect. Old records accumulate and wait, causing delays in urgent checks. This could be problematic for discharge records. It is inefficient in hospital management.  
+
+Queue operations: For example, if patients 1, 2, 3, 4, 5 are discharged in order, 1 is removed first from the Queue.  
+
+For example, if there is an error in discharging, you should check the negative records with the queue, but with the stack, you can look directly at the new records.  
+QUEUE   
+
+Enqueue: O(1) A new node is added to the end (with a linked list).  
+
+Dequeue: O(1) Removes the node at the front.  
+
+Peek: O(1) Reads the data at the front.  
+
+PrintQueue: Iterates through the entire list, takes n steps.  
+Similarities = Both perform O(1) insertion and removal, equal according to Big O, but logically, the Stack wins.
+
+STACK OUTPUT=
+Taburcu kaydı çıkarıldı: Hasta ID = 5
+Taburcu kaydı çıkarıldı: Hasta ID = 4
+Taburcu Stack İçeriği 
+1. TASK1.Patient ID: 3, Discharge Time: 1766846373728
+2. TASK1.Patient ID: 2, Discharge Time: 1766846373728
+3. TASK1.Patient ID: 1, Discharge Time: 1766846373726
